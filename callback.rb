@@ -24,7 +24,7 @@ post '/gh-post-receive/' do
   payload = JSON.parse(params[:payload])
   repo=payload["repository"]
   message=""
-  if(payload["commits"].count>1)
+  if(payload["commits"].length>1)
     before=payload["before"]
     after=payload["after"]
     old_url="#{repo["url"]}/compare/#{before}...#{after}"
